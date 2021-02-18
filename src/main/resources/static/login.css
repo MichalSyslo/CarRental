@@ -1,0 +1,49 @@
+#content{
+    display: inline-block;
+    margin-left: 290px;
+}
+
+#login-form{
+    width: 1200px;
+    margin: 0 auto;
+}
+
+#login-form input[type="text"]{
+    width: 80%;
+    display: block;
+    font-size: 25px;
+    padding: 7px;
+    margin: 10px auto 20px auto;
+}
+
+#login-form input[type="password"]{
+    width: 80%;
+    display: block;
+    font-size: 25px;
+    padding: 7px;
+    margin: 0 auto 20px auto;
+}
+
+#login-form input[type="submit"]{
+    width: 25%;
+    margin: 0 auto 5px auto;
+    display: block;
+    font-size: 25px;
+    border: 1px solid black;
+    color: black;
+    background-color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: color 0.5s, background-color 0.5s;
+}
+
+#login-form input[type="submit"]:hover{
+    color: white;
+    background-color: black;
+}
+
+#register-link{
+    display: block;
+    font-size: 18px;
+    text-align: center;
+}

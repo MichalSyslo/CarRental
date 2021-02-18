@@ -1,0 +1,19 @@
+#content{
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 35px;
+}
+
+#contact{
+    font-size: 23px;
+    text-align: justify;
+    margin-bottom: 35px;
+}
+
+#adPlace{
+    display: inline-block;
+    text-align: center;
+    width: 350px;
+    height: 600px;
+    margin-left: 85px;
+}

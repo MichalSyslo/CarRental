@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>VIP Rent A Car</title>
+
+    <link rel="stylesheet", href="/common.css">
+    <link rel="stylesheet", href="/login.css">
+
+</head>
+<body>
+<header th:replace = "fragments.html :: header"></header>
+<div th:replace = "fragments.html :: sidebar"></div>
+
+    <div id="content">
+        <form id="login-form" th:method="post">
+            <input type="text" placeholder="Login" th:field="*{userModel.login}">
+            <input type="password" placeholder="Password" th:field="*{userModel.password}">
+            <input type="submit" value="Login">
+            <a href="/register" id="register-link">Register</a>
+        </form>
+    </div>
+</body>
+</html>

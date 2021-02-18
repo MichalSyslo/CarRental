@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>VIP Rent A Car</title>
+
+    <link rel="stylesheet", href="/common.css">
+    <link rel="stylesheet", href="/cars.css">
+
+</head>
+<body>
+<header th:replace = "fragments.html :: header"></header>
+<div th:replace = "fragments.html :: sidebar"></div>
+
+    <div id="content">
+<!--        <th:block th:each="car : ${cars}">-->
+            <div class="car-box">
+                <img src="toyota_yaris.PNG" class="car-picture">
+                <div class="car-details">
+                    <a class="car-name">Toyota yaris</a>
+                    <div class="car-specification"></div>
+                </div>
+                <div class="car-rent">
+                    <div class="car-price">Price: </div>
+                    <div>Additional info</div>
+                    <div class="book-button">Book</div>
+                </div>
+
+
+            </div>
+        </div>
+<!--    </th:block>-->
+</body>
+</html>

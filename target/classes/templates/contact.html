@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>VIP Rent A Car</title>
+
+    <link rel="stylesheet", href="/common.css">
+    <link rel="stylesheet", href="/contact.css">
+
+</head>
+<body>
+    <header th:replace = "fragments.html :: header"></header>
+    <div th:replace = "fragments.html :: sidebar"></div>
+
+    <div id="content">
+        <div id="contact">
+            VIP Rent A Car<br>
+            1 Coombe Dale, Backwell <br>
+            BS48 3EN Bristol <br>
+            Great Britain <br>
+            Phone: +44 1235 345 345
+        </div>
+
+        <a href="https://www.google.pl/maps/place/Coombe+Dale+Accommodation/@51.3864121,-2.7084686,15.75z/data=!4m8!3m7!1s0x4871f4bb24d5cc59:0x89019762a656953a!5m2!4m1!1i2!8m2!3d51.387987!4d-2.7044553?hl=pl" target="_blank"><img src="map.png"/> </a>
+    </div>
+    <img src="ad_place.jpg" id="adPlace"/>
+</body>
+</html>

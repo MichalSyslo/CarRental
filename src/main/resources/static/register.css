@@ -1,0 +1,56 @@
+#content{
+    display: inline-block;
+    margin-left: 290px;
+}
+
+#register-form{
+    width: 1200px;
+    margin: 0 auto;
+}
+
+#register-form input[type="text"]{
+    width: 80%;
+    display: block;
+    font-size: 25px;
+    padding: 7px;
+    margin: 10px auto 20px auto;
+}
+
+#register-form input[type="password"]{
+    width: 80%;
+    display: block;
+    font-size: 25px;
+    padding: 7px;
+    margin: 0 auto 20px auto;
+}
+
+#register-form input[type="submit"]{
+    width: 25%;
+    margin: 0 auto 5px auto;
+    display: block;
+    font-size: 25px;
+    border: 1px solid black;
+    color: black;
+    background-color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: color 0.5s, background-color 0.5s;
+}
+
+#register-form input[type="submit"]:hover{
+    color: white;
+    background-color: black;
+}
+
+#register-link{
+    display: block;
+    font-size: 18px;
+    text-align: center;
+}
+
+#registrationErrorInfo{
+    display: block;
+    text-align: center;
+    font-size: 23px;
+    color: red;
+}

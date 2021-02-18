@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<!--suppress ThymeleafVariablesResolveInspection -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>VIP Rent A Car</title>
+
+    <link rel="stylesheet", href="/common.css">
+</head>
+<body>
+    <header th:fragment="header" id="header">
+        <img src="CarRentalLogo.png" id="logo">
+    </header>
+        <div th:fragment="sidebar" id="sidebar">
+            <div class="menu-button"><a href="/home">Home</a></div>
+            <div class="menu-button"><a href="/contact">Contact</a></div>
+            <div class="menu-button"><a href="/cars">Cars</a></div>
+            <div class="menu-button"><a href="/login" th:if="${!isLogged}">Login</a>
+                                    <a href="/logout" th:if="${isLogged}">Logout</a></div>
+        </div>
+</body>
+</html>
