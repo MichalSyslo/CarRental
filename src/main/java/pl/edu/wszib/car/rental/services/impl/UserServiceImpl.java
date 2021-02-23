@@ -23,9 +23,14 @@ public class UserServiceImpl implements IUserService {
     @Override
     public void authenticate(User user) {
         User userFromDB = this.userDAO.getUserByLogin(user.getLogin());
-        if(userFromDB == null){ return; }
+        if(userFromDB == null){
+            this.sessionObject.setInfo("User with given login doesn't exist");
+            return;
+        }
         if(user.getPassword().equals(userFromDB.getPassword())){
             this.sessionObject.setLoggedUser(userFromDB);
+        }else{
+            this.sessionObject.setInfo("Provided password is incorrect");
         }
     }
 

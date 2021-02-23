@@ -12,13 +12,14 @@
 <header th:replace = "fragments.html :: header"></header>
 <div th:replace = "fragments.html :: sidebar"></div>
 
-    <div id="content">
-        <form id="login-form" th:method="post">
-            <input type="text" placeholder="Login" th:field="*{userModel.login}">
-            <input type="password" placeholder="Password" th:field="*{userModel.password}">
-            <input type="submit" value="Login">
-            <a href="/register" id="register-link">Register</a>
-        </form>
-    </div>
+<div id="content">
+    <form id="login-form" th:method="post">
+        <a th:if="${info}" th:text="${info}" id="loginErrorInfo"></a>
+        <input type="text" placeholder="Login" th:field="*{userModel.login}">
+        <input type="password" placeholder="Password" th:field="*{userModel.password}">
+        <input type="submit" value="Login">
+        <a href="/register" id="register-link">Register</a>
+    </form>
+</div>
 </body>
 </html>

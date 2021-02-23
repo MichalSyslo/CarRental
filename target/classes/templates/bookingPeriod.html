@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>VIP Rent A Car</title>
+
+    <link rel="stylesheet", href="/common.css">
+    <link rel="stylesheet", href="/bookingPeriod.css">
+
+</head>
+<body>
+<header th:replace = "fragments.html :: header"></header>
+<div th:replace = "fragments.html :: sidebar"></div>
+
+<div id="content">
+    <form id="booking-period-form" th:method="post">
+        <a th:if="${info}" th:text="${info}" id="bookingErrorInfo"></a>
+        <label>Pick-up date: <input type="date" th:field="*{bookingPeriodModel.startDate}"></label>
+        <label>Pick-up hour: <input type="time" step="3600" th:field="*{bookingPeriodModel.rentHour}"/></label>
+        <label>Drop-off date: <input type="date" th:field="*{bookingPeriodModel.endDate}"></label>
+        <input type="submit" value="Search">
+    </form>
+</div>
+</body>
+</html>

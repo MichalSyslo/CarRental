@@ -28,6 +28,7 @@ public class UserController {
     public String loginForm(Model model){
         model.addAttribute("isLogged", this.sessionObject.isLogged());
         model.addAttribute("userModel", new User());
+        model.addAttribute("info", this.sessionObject.getInfo());
 
         return "/login";
     }

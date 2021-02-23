@@ -1,11 +1,10 @@
 #content{
     display: inline-block;
-    margin-left: 290px;
+    margin-left: 100px;
 }
 
 #login-form{
-    width: 1200px;
-    margin: 0 auto;
+    width: 1000px;
 }
 
 #login-form input[type="text"]{
@@ -46,4 +45,11 @@
     display: block;
     font-size: 18px;
     text-align: center;
+}
+
+#loginErrorInfo{
+    display: block;
+    text-align: center;
+    font-size: 23px;
+    color: red;
 }

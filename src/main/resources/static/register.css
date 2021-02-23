@@ -1,12 +1,12 @@
 #content{
     display: inline-block;
-    margin-left: 290px;
+    margin-left: 100px;
 }
 
 #register-form{
-    width: 1200px;
-    margin: 0 auto;
+    width: 1000px;
 }
+
 
 #register-form input[type="text"]{
     width: 80%;
