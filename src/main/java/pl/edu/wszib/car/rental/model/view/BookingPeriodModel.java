@@ -1,12 +1,10 @@
 package pl.edu.wszib.car.rental.model.view;
 
-import java.sql.Time;
-import java.util.Date;
 
 public class BookingPeriodModel {
-    private String startDate;
-    private String endDate;
-    private String rentHour;
+    private String startDate=null;
+    private String endDate=null;
+    private String rentHour=null;
 
     public BookingPeriodModel(String startDate, String endDate, String rentHour) {
         this.startDate = startDate;

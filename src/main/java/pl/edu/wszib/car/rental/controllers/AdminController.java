@@ -43,12 +43,29 @@ public class AdminController {
     }
 
     @RequestMapping(value = "/removeVehicle/{id}", method = RequestMethod.GET)
-    public String removeCarForm(Model model, @PathVariable int id){
+    public String removeCarForm(@PathVariable int id){
+        if(!this.sessionObject.isLogged() || this.sessionObject.getLoggedUser().getRole() != User.Role.ADMIN){
+            return "redirect:/login";
+        }
+        this.vehicleService.removeVehicle(this.vehicleService.getVehicleByID(id));
+
+        return "redirect:/cars";
+    }
+
+    @RequestMapping(value = "/editVehicle/{id}", method = RequestMethod.GET)
+    public String editVehicleForm(@PathVariable int id, Model model){
         if(!this.sessionObject.isLogged() || this.sessionObject.getLoggedUser().getRole() != User.Role.ADMIN){
             return "redirect:/login";
         }
         model.addAttribute("isLogged", this.sessionObject.isLogged());
-        this.vehicleService.removeVehicle(this.vehicleService.getVehicleByID(id));
+        model.addAttribute("vehicleModel", this.vehicleService.getVehicleByID(id));
+
+        return "/editVehicle";
+    }
+
+    @RequestMapping(value = "/editVehicle/{id}", method = RequestMethod.POST)
+    public String editVehicleForm(@ModelAttribute Vehicle vehicle){
+        this.vehicleService.updateVehicle(vehicle);
 
         return "redirect:/cars";
     }

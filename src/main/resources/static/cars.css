@@ -3,9 +3,13 @@
     margin-left: 120px;
 }
 
+#change-date-box{
+    width:100%;
+}
+
 .car-box{
     border-bottom: 1px grey dotted;
-
+    margin-bottom: 50px;
 }
 
 .car-picture{
@@ -17,8 +21,8 @@
 .car-details{
     display: inline-block;
     vertical-align: top;
-    width: 200px;
-    margin: 0 70px;
+    width: 260px;
+    margin: 0 30px;
 }
 
 .car-name{
@@ -46,9 +50,12 @@
     margin: 0 20px;
 }
 
-
 .car-price{
     font-size: 25px;
+}
+
+a{
+    text-decoration:none;
 }
 
 .book-button{
@@ -81,7 +88,7 @@
     margin: -20px 50px 25px 480px;
 }
 
-#remove-vehicle-button{
+.remove-vehicle-button{
     background-image: url("removeCarIcon.png");
     width: 50px;
     height: 50px;
@@ -91,14 +98,21 @@
     margin-bottom: 10px;
 }
 
-.additional-info-box{
-    resize: none;
+.edit-vehicle-button{
+    background-image: url("editCarIcon.png");
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    background-size: contain;
+    vertical-align: bottom;
+    margin: 10px;
 }
 
 #change-date-button{
     width: 140px;
     height:30px;
     text-align:center;
+    text-decoration: none;
     display: inline-block;
     font-size: 23px;
     font-weight: 500;
@@ -108,7 +122,6 @@
     border-radius: 8px;
     cursor: pointer;
     transition: color 0.5s, background-color 0.5s;
-    float:right;
     margin-bottom:20px;
     vertical-align: top;
 }

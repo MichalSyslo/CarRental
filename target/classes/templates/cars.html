@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <title>VIP Rent A Car</title>
 
-    <link rel="stylesheet", href="/common.css">
-    <link rel="stylesheet", href="/cars.css">
+    <link rel="stylesheet" href="/common.css">
+    <link rel="stylesheet" href="/cars.css">
 
 </head>
 <body>
@@ -15,24 +15,25 @@
 
     <div id="content">
         <a th:href="@{/addVehicle}" th:if="${role=='ADMIN'}" id="add-vehicle-button"></a>
-        <div th:href="@{/bookingPeriod}" id="change-date-button">Change date</div>
+        <div id="change-date-box"><a th:href="@{/bookingPeriod}" th:if="${isLogged && role!='ADMIN'}" id="change-date-button">Change date</a></div>
         <th:block th:each="vehicle : ${vehicles}">
             <div class="car-box">
-    <!--            <img src="toyota_yaris.PNG" class="car-picture">-->
+                <img src="toyota_yaris.PNG" class="car-picture">
                 <div class="car-details">
                     <a class="car-name" th:text="${vehicle.name}"></a>
                     <div class="car-specification">
                         <div><img src="gearboxIcon.png" class="car-specification-icon" th:text="${vehicle.gearbox}"></div>
                         <div><img src="seatsIcon.png" class="car-specification-icon" th:text="${vehicle.seats} + ' Seats'"></div>
-                        <div><img src="mileageIcon.png" class="car-specification-icon" th:text="'Average mileage: ' + ${vehicle.mileage} + ' l./100km'"></div>
-                        <div><img src="bootIcon.png" class="car-specification-icon" th:text="'Boot Capacity :' + ${vehicle.bootCapacity} + ' l.'"></div>
+                        <div><img src="mileageIcon.png" class="car-specification-icon" th:text="'Average mileage: ' + ${vehicle.mileage} + ' l/100km'"></div>
+                        <div><img src="bootIcon.png" class="car-specification-icon" th:text="'Boot Capacity: ' + ${vehicle.bootCapacity} + ' l'"></div>
                     </div>
                 </div>
                 <div class="car-rent">
-                    <div class="car-price" th:text="${vehicle.price}+' /Day'"></div>
-                    <div th:href="@{/book/{id}(id=${vehicle.id})}" th:if="${isLogged}" class="book-button">Book</div>
+                    <div class="car-price" th:text="'£'+${vehicle.price}+' /Day'"></div>
+                    <a th:href="@{/book/{id}(id=${vehicle.id})}"><div  th:if="${isLogged && role!='ADMIN'}" class="book-button">Book</div></a>
                 </div>
-                <a th:href="@{/removeVehicle/{id}(id=${vehicle.id})}" th:if="${role=='ADMIN'}" id="remove-vehicle-button"></a>
+                <a th:href="@{/removeVehicle/{id}(id=${vehicle.id})}" th:if="${role=='ADMIN'}" class="remove-vehicle-button"></a>
+                <a th:href="@{/editVehicle/{id}(id=${vehicle.id})}" th:if="${role=='ADMIN'}" class="edit-vehicle-button"></a>
             </div>
         </th:block>
     </div>

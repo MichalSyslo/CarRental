@@ -1,0 +1,110 @@
+#content{
+    display: inline-block;
+    margin-left: 120px;
+}
+
+.car-box{
+    border-bottom: 1px grey dotted;
+    margin-bottom: 50px;
+}
+
+.car-picture{
+    display: inline-block;
+    width: 500px;
+    height: 207px;
+}
+
+.car-details{
+    display: inline-block;
+    vertical-align: top;
+    width: 260px;
+    margin: 0 30px;
+}
+
+.car-name{
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.car-specification{
+    font-size: 18px;
+}
+
+.car-specification > div{
+    margin: 10px auto;
+}
+
+.car-specification-icon{
+    width:25px;
+    vertical-align:middle;
+    margin-right: 8px;
+}
+
+.car-rent{
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 20px;
+}
+
+.car-price{
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+a{
+    text-decoration:none;
+}
+
+.rent-date{
+    font-size: 22px;
+    margin-top: 3px;
+}
+
+.user-login{
+    font-size: 22px;
+    margin-top: 45px;
+    font-weight:bold;
+}
+
+.cancel-reservation-button{
+    background-image: url("cancelReservationIcon.jpg");
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    background-size: contain;
+    vertical-align: bottom;
+    margin-bottom: 10px;
+}
+
+#cancellationErrorInfo{
+    display: block;
+    text-align: center;
+    font-size: 23px;
+    margin: 5px auto;
+    color: red;
+}
+
+#search-user-reservations-form{
+    margin-bottom: 20px;
+}
+
+#search-user-reservations-form input[type="text"]{
+    padding: 3px;
+    font-size: 17px;
+}
+
+#search-user-reservations-form>label{
+    font-size:23px;
+    margin: 0 20px;
+}
+
+#search-user-reservations-form input[type="submit"]{
+    width: 180px;
+    font-size: 23px;
+    border: 1px solid black;
+    color: black;
+    background-color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: color 0.5s, background-color 0.5s;
+}

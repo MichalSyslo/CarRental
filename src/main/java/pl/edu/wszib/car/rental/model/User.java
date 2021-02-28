@@ -9,13 +9,16 @@ public class User {
     private int id;
     private String login;
     private String password;
+    private String name;
+    private String surname;
     @Enumerated(EnumType.STRING)
     private Role role;
 
-    public User(int id, String login, String password, Role role) {
-        this.id = id;
+    public User(String login, String password, String name, String surname, Role role) {
         this.login = login;
         this.password = password;
+        this.name = name;
+        this.surname = surname;
         this.role = role;
     }
 
@@ -52,6 +55,22 @@ public class User {
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
     public enum Role{

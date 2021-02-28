@@ -37,6 +37,8 @@ public class UserServiceImpl implements IUserService {
     @Override
     public void logout() {
         this.sessionObject.setLoggedUser(null);
+        this.sessionObject.setStartDate(null);
+        this.sessionObject.setEndDate(null);
     }
 
     @Override
@@ -44,7 +46,7 @@ public class UserServiceImpl implements IUserService {
         if(this.userDAO.getUserByLogin(registrationModel.getLogin()) != null){
             return false;
         }
-        User user = new User(0, registrationModel.getLogin(), registrationModel.getPassword(), User.Role.USER);
+        User user = new User(registrationModel.getLogin(), registrationModel.getPassword(), registrationModel.getName(), registrationModel.getSurname(), User.Role.USER);
 
         return this.userDAO.persistUser(user);
     }

@@ -31,6 +31,8 @@
         <!-- List of XML mapping files -->
         <mapping class="pl.edu.wszib.car.rental.model.User"/>
         <mapping class="pl.edu.wszib.car.rental.model.Vehicle"/>
+        <mapping class="pl.edu.wszib.car.rental.model.Reservation"/>
+        <mapping class="pl.edu.wszib.car.rental.model.view.FullReservationInfoModel"/>
 
     </session-factory>
 </hibernate-configuration>

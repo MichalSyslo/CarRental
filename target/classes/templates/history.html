@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!--suppress ThymeleafVariablesResolveInspection -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>VIP Rent A Car</title>
+
+    <link rel="stylesheet" href="/common.css">
+    <link rel="stylesheet" href="/history.css">
+
+</head>
+<body>
+<header th:replace = "fragments.html :: header"></header>
+<div th:replace = "fragments.html :: sidebar"></div>
+
+<div id="content">
+    <form id="search-user-history-form" action="/history-search" th:if="${role=='ADMIN'}">
+        <label>Name: <input type="text" placeholder="Name" name="name"></label>
+        <label>Surname: <input type="text" placeholder="Surname" name="surname"></label>
+        <input type="submit" value="Search">
+    </form>
+    <th:block th:each="history : ${historyInfo}">
+        <div class="car-box">
+            <!--                        <img src="toyota_yaris.PNG" class="car-picture">-->
+            <div class="car-details">
+                <a class="car-name" th:text="${history.vehicleName}"></a>
+                <div class="car-specification">
+                    <div><img src="gearboxIcon.png" class="car-specification-icon" th:text="${history.gearBox}"></div>
+                    <div><img src="seatsIcon.png" class="car-specification-icon" th:text="${history.seats} + ' Seats'"></div>
+                    <div><img src="mileageIcon.png" class="car-specification-icon" th:text="'Average mileage: ' + ${history.mileage} + ' l/100km'"></div>
+                    <div><img src="bootIcon.png" class="car-specification-icon" th:text="'Boot Capacity: ' + ${history.bootCapacity} + ' l'"></div>
+                </div>
+            </div>
+            <div class="car-rent">
+                <div class="car-price" th:text="'Price: £'+${history.totalPrice}"></div>
+                <div class="rent-date" th:text="'From: '+${history.startDate}"></div>
+                <div class="rent-date" th:text="'To: '+${history.endDate}"></div>
+                <div class="user-login" th:if="${role=='ADMIN'}" th:text="'Login: '+${history.login}"></div>
+            </div>
+        </div>
+    </th:block>
+</div>
+</body>
+</html>

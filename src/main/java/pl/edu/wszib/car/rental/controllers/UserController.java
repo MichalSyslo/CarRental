@@ -26,6 +26,9 @@ public class UserController {
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String loginForm(Model model){
+        if(this.sessionObject.isLogged()){
+            return "redirect:/home";
+        }
         model.addAttribute("isLogged", this.sessionObject.isLogged());
         model.addAttribute("userModel", new User());
         model.addAttribute("info", this.sessionObject.getInfo());
@@ -52,6 +55,9 @@ public class UserController {
 
     @RequestMapping(value = "/register", method = RequestMethod.GET)
     public String registerForm(Model model){
+        if(this.sessionObject.isLogged()){
+            return "redirect:/home";
+        }
         model.addAttribute("isLogged", this.sessionObject.isLogged());
         model.addAttribute("registrationModel", new RegistrationModel());
         model.addAttribute("info", this.sessionObject.getInfo());
@@ -66,7 +72,16 @@ public class UserController {
         Matcher passMatcher = regexp.matcher(registrationModel.getPassword());
         Matcher pass2Matcher = regexp.matcher(registrationModel.getPassword2());
 
-        if(!loginMatcher.matches() || !passMatcher.matches() || !pass2Matcher.matches() || !registrationModel.getPassword().equals(registrationModel.getPassword2())){
+        Pattern regexp2 = Pattern.compile("[A-Za-z]{3}.*");
+        Matcher nameMatcher = regexp2.matcher(registrationModel.getName());
+        Matcher surnameMatcher = regexp2.matcher(registrationModel.getSurname());
+
+        if(!loginMatcher.matches() || !passMatcher.matches() || !pass2Matcher.matches() || !registrationModel.getPassword().equals(registrationModel.getPassword2()) || !nameMatcher.matches() || !surnameMatcher.matches()){
+            this.sessionObject.setInfo("Validation error!!");
+            return "redirect:/register";
+        }
+
+        if(!nameMatcher.matches() || !surnameMatcher.matches()){
             this.sessionObject.setInfo("Validation error!!");
             return "redirect:/register";
         }

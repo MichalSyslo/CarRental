@@ -5,16 +5,18 @@
     <meta charset="UTF-8">
     <title>VIP Rent A Car</title>
 
-    <link rel="stylesheet", href="/common.css">
+    <link rel="stylesheet" href="/common.css">
 </head>
 <body>
     <header th:fragment="header" id="header">
-        <img src="CarRentalLogo.png" id="logo">
+        <img src="/CarRentalLogo.png" id="logo">
     </header>
         <div th:fragment="sidebar" id="sidebar">
             <div class="menu-button"><a href="/home">Home</a></div>
             <div class="menu-button"><a href="/contact">Contact</a></div>
             <div class="menu-button"><a href="/cars">Cars</a></div>
+            <div class="menu-button" th:if="${isLogged}"><a href="/reservations">Reservations</a></div>
+            <div class="menu-button" th:if="${isLogged}"><a href="/history">History</a></div>
             <div class="menu-button"><a href="/login" th:if="${!isLogged}">Login</a>
                                     <a href="/logout" th:if="${isLogged}">Logout</a></div>
         </div>

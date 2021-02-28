@@ -1,0 +1,48 @@
+#content{
+    display: inline-block;
+    margin-left: 400px;
+}
+
+#edit-vehicle-form{
+    display: table;
+    width: 600px;
+}
+
+#edit-vehicle-form>p{
+    display: table-row;
+    width: 100px;
+}
+
+#edit-vehicle-form>p>label{
+    display: table-cell;
+    font-size: 23px;
+}
+
+#edit-vehicle-form>p>input, #edit-vehicle-form>p>select{
+    display: table-cell;
+    margin-bottom: 20px;
+    font-size: 20px;
+    padding: 4px;
+}
+
+#edit-vehicle-form>input{
+    width: 200px;
+    height: 35px;
+    margin-top: 15px;
+    font-weight: 600;
+    font-size: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: block;
+    border: 2px solid black;
+    color: black;
+    background-color: white;
+    transition: color 0.5s, background-color 0.5s;
+}
+
+#edit-vehicle-form>input:hover{
+    color: white;
+    background-color: black;
+}
+
+

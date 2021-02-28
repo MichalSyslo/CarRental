@@ -4,23 +4,21 @@ package pl.edu.wszib.car.rental.model;
 import javax.persistence.*;
 import java.sql.Timestamp;
 
-@Entity(name="treservation")
+@Entity (name="treservation")
 public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @ManyToOne(fetch = FetchType.EAGER)
-    private int carId;
+    private Vehicle vehicle;
     @ManyToOne(fetch = FetchType.EAGER)
     private User user;
-    @Temporal(TemporalType.TIMESTAMP)
     private Timestamp startDate;
-    @Temporal(TemporalType.TIMESTAMP)
     private Timestamp endDate;
     private double totalPrice;
 
-    public Reservation(int carId, User user, Timestamp startDate, Timestamp endDate, double totalPrice) {
-        this.carId = carId;
+    public Reservation(Vehicle vehicle, User user, Timestamp startDate, Timestamp endDate, double totalPrice) {
+        this.vehicle = vehicle;
         this.user = user;
         this.startDate = startDate;
         this.endDate = endDate;
@@ -38,12 +36,12 @@ public class Reservation {
         this.id = id;
     }
 
-    public int getCarId() {
-        return carId;
+    public Vehicle getVehicle() {
+        return vehicle;
     }
 
-    public void setCarId(int carId) {
-        this.carId = carId;
+    public void setVehicle(Vehicle vehicle) {
+        this.vehicle = vehicle;
     }
 
     public User getUser() {
