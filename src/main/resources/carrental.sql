@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 04 Mar 2021, 18:00
+-- Czas generowania: 04 Mar 2021, 23:59
 -- Wersja serwera: 10.4.14-MariaDB
 -- Wersja PHP: 7.4.11
 
@@ -103,9 +103,9 @@ CREATE TABLE `tuser` (
 --
 
 INSERT INTO `tuser` (`id`, `login`, `name`, `password`, `role`, `surname`) VALUES
-(1, 'admin', 'michal', 'admin', 'ADMIN', 'syslo'),
-(3, 'michal', 'michal', 'michal', 'USER', 'michal'),
-(9, 'adam123', 'Adam', 'adam123', 'USER', 'Adamowski');
+(1, 'admin', 'michal', '21232f297a57a5a743894a0e4a801fc3', 'ADMIN', 'syslo'),
+(3, 'michal', 'michal', '06b2af75179fb94be097af182a442a4a', 'USER', 'michal'),
+(9, 'adam123', 'Adam', '3e7b522b9756d2578d3a86d8f366be6e', 'USER', 'Adamowski');
 
 -- --------------------------------------------------------
 

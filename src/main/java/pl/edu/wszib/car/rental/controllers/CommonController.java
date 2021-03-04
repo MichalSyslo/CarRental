@@ -1,6 +1,7 @@
 package pl.edu.wszib.car.rental.controllers;
 
 
+import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

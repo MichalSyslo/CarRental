@@ -1,6 +1,7 @@
 package pl.edu.wszib.car.rental.services.impl;
 
 
+import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.edu.wszib.car.rental.dao.IUserDAO;
@@ -27,7 +28,7 @@ public class UserServiceImpl implements IUserService {
             this.sessionObject.setInfo("User with given login doesn't exist");
             return;
         }
-        if(user.getPassword().equals(userFromDB.getPassword())){
+        if(DigestUtils.md5Hex(user.getPassword()).equals(userFromDB.getPassword())){
             this.sessionObject.setLoggedUser(userFromDB);
         }else{
             this.sessionObject.setInfo("Provided password is incorrect");
@@ -46,7 +47,7 @@ public class UserServiceImpl implements IUserService {
         if(this.userDAO.getUserByLogin(registrationModel.getLogin()) != null){
             return false;
         }
-        User user = new User(registrationModel.getLogin(), registrationModel.getPassword(), registrationModel.getName(), registrationModel.getSurname(), User.Role.USER);
+        User user = new User(registrationModel.getLogin(), DigestUtils.md5Hex(registrationModel.getPassword()), registrationModel.getName(), registrationModel.getSurname(), User.Role.USER);
 
         return this.userDAO.persistUser(user);
     }
