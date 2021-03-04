@@ -4,10 +4,8 @@ package pl.edu.wszib.car.rental.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import pl.edu.wszib.car.rental.model.User;
 import pl.edu.wszib.car.rental.model.Vehicle;
 import pl.edu.wszib.car.rental.services.IVehicleService;
@@ -30,6 +28,7 @@ public class AdminController {
             return "redirect:/login";
         }
         model.addAttribute("isLogged", this.sessionObject.isLogged());
+        model.addAttribute("info", this.sessionObject.getInfo());
         model.addAttribute("vehicleModel", new Vehicle());
 
         return "/addVehicle";
@@ -37,9 +36,11 @@ public class AdminController {
 
     @RequestMapping(value = "/addVehicle", method = RequestMethod.POST)
     public String addCarSubmit(@ModelAttribute Vehicle vehicle){
-        this.vehicleService.addVehicle(vehicle);
+        if(this.vehicleService.addVehicle(vehicle)){
+            return "redirect:/cars";
+        }
 
-        return "redirect:/cars";
+        return "redirect:/addVehicle";
     }
 
     @RequestMapping(value = "/removeVehicle/{id}", method = RequestMethod.GET)

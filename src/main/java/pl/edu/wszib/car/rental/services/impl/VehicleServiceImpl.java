@@ -3,15 +3,11 @@ package pl.edu.wszib.car.rental.services.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.edu.wszib.car.rental.dao.IVehicleDAO;
-import pl.edu.wszib.car.rental.model.Reservation;
 import pl.edu.wszib.car.rental.model.Vehicle;
 import pl.edu.wszib.car.rental.services.IVehicleService;
 import pl.edu.wszib.car.rental.session.SessionObject;
 
 import javax.annotation.Resource;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 @Service
@@ -41,14 +37,19 @@ public class VehicleServiceImpl implements IVehicleService {
 
     @Override
     public List<Vehicle> getAvailableVehicles() {
-        List<Vehicle> vehicles = this.vehicleDAO.getAvailableVehicles(this.sessionObject.getStartDate(), this.sessionObject.getEndDate());
 
-        return vehicles;
+        return this.vehicleDAO.getAvailableVehicles(this.sessionObject.getStartDate(), this.sessionObject.getEndDate());
     }
 
     @Override
-    public void addVehicle(Vehicle vehicle) {
+    public boolean addVehicle(Vehicle vehicle) {
+        if(vehicle.getName().equals("") || vehicle.getSeats()==0 || vehicle.getBootCapacity() == 0 || vehicle.getMileage()==0){
+            this.sessionObject.setInfo("Please, provide all necessary information");
+            return false;
+        }
+
         this.vehicleDAO.persistVehicle(vehicle);
+        return true;
     }
 
     @Override

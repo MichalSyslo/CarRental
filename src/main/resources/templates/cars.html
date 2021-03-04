@@ -18,9 +18,9 @@
         <div id="change-date-box"><a th:href="@{/bookingPeriod}" th:if="${isLogged && role!='ADMIN'}" id="change-date-button">Change date</a></div>
         <th:block th:each="vehicle : ${vehicles}">
             <div class="car-box">
-                <img src="toyota_yaris.PNG" class="car-picture">
+               <!-- <img th:src="${vehicle.image}" th:if="${vehicle.image!=null}" class="car-picture">-->
                 <div class="car-details">
-                    <a class="car-name" th:text="${vehicle.name}"></a>
+                    <p class="car-name" th:text="${vehicle.name}"></p>
                     <div class="car-specification">
                         <div><img src="gearboxIcon.png" class="car-specification-icon" th:text="${vehicle.gearbox}"></div>
                         <div><img src="seatsIcon.png" class="car-specification-icon" th:text="${vehicle.seats} + ' Seats'"></div>

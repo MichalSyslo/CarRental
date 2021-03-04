@@ -44,3 +44,10 @@
     color: white;
     background-color: black;
 }
+
+#addCarErrorInfo{
+    display: block;
+    text-align: center;
+    font-size: 23px;
+    color: red;
+}

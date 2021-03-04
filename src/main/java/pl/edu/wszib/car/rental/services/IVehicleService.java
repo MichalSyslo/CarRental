@@ -9,6 +9,6 @@ public interface IVehicleService {
     void updateVehicle(Vehicle vehicle);
     List<Vehicle> getAllVehicles();
     List<Vehicle> getAvailableVehicles();
-    void addVehicle(Vehicle vehicle);
     void removeVehicle(Vehicle vehicle);
+    boolean addVehicle(Vehicle vehicle);
 }

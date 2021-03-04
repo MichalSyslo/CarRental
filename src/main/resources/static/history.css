@@ -24,6 +24,7 @@
 .car-name{
     font-size: 28px;
     font-weight: bold;
+    margin: 0;
 }
 
 .car-specification{

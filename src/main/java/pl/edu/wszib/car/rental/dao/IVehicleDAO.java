@@ -5,7 +5,7 @@ import pl.edu.wszib.car.rental.model.Vehicle;
 import java.sql.Timestamp;
 import java.util.List;
 
-public interface IVehicleDAO {
+public interface IVehicleDAO  {
     Vehicle getVehicleByID(int id);
     void updateVehicle(Vehicle vehicle);
     List<Vehicle> getAllVehicles();

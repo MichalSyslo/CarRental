@@ -16,6 +16,7 @@ import javax.annotation.Resource;
 @Controller
 public class CommonController {
 
+
     @Autowired
     IVehicleService vehicleService;
 
@@ -44,6 +45,7 @@ public class CommonController {
 
     @RequestMapping(value="/cars", method = RequestMethod.GET)
     public String cars(Model model){
+
         model.addAttribute("isLogged", this.sessionObject.isLogged());
         model.addAttribute("role", this.sessionObject.isLogged() ? this.sessionObject.getLoggedUser().getRole().toString() : null);
         model.addAttribute("vehicles", (this.sessionObject.isLogged() && this.sessionObject.getLoggedUser().getRole() != User.Role.ADMIN)

@@ -13,7 +13,6 @@ import pl.edu.wszib.car.rental.session.SessionObject;
 
 import javax.annotation.Resource;
 import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
@@ -43,13 +42,11 @@ public class BookingServiceImpl implements IBookingService {
             return;
         }
 
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd hh");
-
         String startRentDate = bookingPeriodModel.getStartDate()+" "+ bookingPeriodModel.getRentHour()+":00";
-        Timestamp ts = Timestamp.valueOf(startRentDate);
+        Timestamp tsStart = Timestamp.valueOf(startRentDate);
 
         String endRentDate = bookingPeriodModel.getEndDate()+" "+ bookingPeriodModel.getRentHour()+":00";
-        Timestamp ts2 = Timestamp.valueOf(endRentDate);
+        Timestamp tsEnd = Timestamp.valueOf(endRentDate);
 
         DateTimeFormatter fmt = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         LocalDateTime start = LocalDateTime.parse(startRentDate, fmt);
@@ -64,13 +61,14 @@ public class BookingServiceImpl implements IBookingService {
         }
 
         long hours = ChronoUnit.HOURS.between(currentDate, start);
-        if(hours <= 0){
+        long minutes = ChronoUnit.MINUTES.between(currentDate, start);
+        if(hours < 0 || minutes <= 0){
             this.sessionObject.setInfo("Choose proper pick-up date");
             return;
         }
 
-        this.sessionObject.setStartDate(ts);
-        this.sessionObject.setEndDate(ts2);
+        this.sessionObject.setStartDate(tsStart);
+        this.sessionObject.setEndDate(tsEnd);
     }
 
     @Override

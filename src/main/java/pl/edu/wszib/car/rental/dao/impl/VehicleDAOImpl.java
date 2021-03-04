@@ -10,10 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import pl.edu.wszib.car.rental.dao.IVehicleDAO;
 import pl.edu.wszib.car.rental.model.Vehicle;
-import pl.edu.wszib.car.rental.session.SessionObject;
 
-
-import javax.annotation.Resource;
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -24,8 +21,6 @@ public class VehicleDAOImpl implements IVehicleDAO {
     @Autowired
     SessionFactory sessionFactory;
 
-    @Resource
-    SessionObject sessionObject;
 
     @Override
     public Vehicle getVehicleByID(int id) {
