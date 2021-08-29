@@ -35,8 +35,8 @@ public class AdminController {
     }
 
     @RequestMapping(value = "/addVehicle", method = RequestMethod.POST)
-    public String addCarSubmit(@ModelAttribute Vehicle vehicle){
-        if(this.vehicleService.addVehicle(vehicle)){
+    public String addCarSubmit(@ModelAttribute Vehicle vehicle, @RequestParam MultipartFile file){
+        if(this.vehicleService.addVehicle(vehicle, file)){
             return "redirect:/cars";
         }
 

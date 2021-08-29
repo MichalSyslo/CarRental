@@ -13,7 +13,7 @@
 <div th:replace = "fragments.html :: sidebar"></div>
 
 <div id="content">
-    <form id="add-vehicle-form" th:method="post">
+    <form id="add-vehicle-form" enctype="multipart/form-data" th:method="post">
         <a th:if="${info}" th:text="${info}" id="addCarErrorInfo"></a>
         <p>
             <label>Car name: </label>
@@ -42,10 +42,10 @@
                 <option value="automatic">Automatic</option>
             </select>
         </p>
-<!--        <p>
+        <p>
             <label>Image: </label>
-            <input type="file" name="file" th:field="*{vehicleModel.image}">
-        </p>-->
+            <input type="file" name="file">
+        </p>
         <input type="submit" value="Add Vehicle">
     </form>
 </div>

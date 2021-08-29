@@ -1,7 +1,6 @@
 package pl.edu.wszib.car.rental.controllers;
 
 
-import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,7 +15,6 @@ import javax.annotation.Resource;
 
 @Controller
 public class CommonController {
-
 
     @Autowired
     IVehicleService vehicleService;
@@ -56,7 +54,6 @@ public class CommonController {
                 && this.sessionObject.getLoggedUser().getRole() != User.Role.ADMIN){
             return "redirect:/bookingPeriod";
         }
-
 
         return "/cars";
     }

@@ -14,17 +14,19 @@ public class Vehicle {
     private double mileage;
     private int bootCapacity;
     private String gearbox;
-/*    @Lob
+    @Lob
     @Column(columnDefinition = "MEDIUMBLOB")
-    private byte[] image;*/
+    private String image;
 
-    public Vehicle(String name, double price, int seats, double mileage, int bootCapacity, String gearbox) {
+    public Vehicle(int id, String name, double price, int seats, double mileage, int bootCapacity, String gearbox, String image) {
+        this.id = id;
         this.name = name;
         this.price = price;
         this.seats = seats;
         this.mileage = mileage;
         this.bootCapacity = bootCapacity;
         this.gearbox = gearbox;
+        this.image = image;
     }
 
     public Vehicle() {
@@ -86,4 +88,11 @@ public class Vehicle {
         this.gearbox = gearbox;
     }
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 }

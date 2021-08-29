@@ -1,6 +1,7 @@
 package pl.edu.wszib.car.rental.services.impl;
 
 
+import org.apache.commons.codec.digest.DigestUtils;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -72,7 +73,7 @@ public class UserServiceImplTest {
     public void correctAuthenticationTest(){
         User user = new User("iza123", "iza123", "Izabella", "Izabella", User.Role.USER );
 
-        Mockito.when(this.userDAO.getUserByLogin("iza123")).thenReturn(new User("iza123", "iza123", "Izabella", "Izabella", User.Role.USER ));
+        Mockito.when(this.userDAO.getUserByLogin("iza123")).thenReturn(new User("iza123", DigestUtils.md5Hex("iza123"), "Izabella", "Izabella", User.Role.USER ));
 
         this.userService.authenticate(user);
 
