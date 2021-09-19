@@ -80,7 +80,7 @@ a{
 }
 
 #add-vehicle-button{
-    background-image: url("addCarIcon.png");
+    background-image: url("img/addCarIcon.png");
     width: 50px;
     height: 50px;
     display: inline-block;
@@ -89,7 +89,7 @@ a{
 }
 
 .remove-vehicle-button{
-    background-image: url("removeCarIcon.png");
+    background-image: url("img/removeCarIcon.png");
     width: 50px;
     height: 50px;
     display: inline-block;
@@ -99,7 +99,7 @@ a{
 }
 
 .edit-vehicle-button{
-    background-image: url("editCarIcon.png");
+    background-image: url("img/editCarIcon.png");
     width: 50px;
     height: 50px;
     display: inline-block;

@@ -22,14 +22,14 @@
     <a th:if="${info}" th:text="${info}" id="cancellationErrorInfo"></a>
     <th:block th:each="reservation : ${reservationsInfo}">
         <div class="car-box">
-<!--                        <img src="toyota_yaris.PNG" class="car-picture">-->
+            <img th:src="${'data:image/png;base64,' + vehicle.image}" class="car-picture">
             <div class="car-details">
                 <p class="car-name" th:text="${reservation.vehicleName}"></p>
                 <div class="car-specification">
-                    <div><img src="gearboxIcon.png" class="car-specification-icon" th:text="${reservation.gearBox}"></div>
-                    <div><img src="seatsIcon.png" class="car-specification-icon" th:text="${reservation.seats} + ' Seats'"></div>
-                    <div><img src="mileageIcon.png" class="car-specification-icon" th:text="'Average mileage: ' + ${reservation.mileage} + ' l/100km'"></div>
-                    <div><img src="bootIcon.png" class="car-specification-icon" th:text="'Boot Capacity: ' + ${reservation.bootCapacity} + ' l'"></div>
+                    <div><img src="/img/gearboxIcon.png" class="car-specification-icon" th:text="${reservation.gearBox}"></div>
+                    <div><img src="/img/seatsIcon.png" class="car-specification-icon" th:text="${reservation.seats} + ' Seats'"></div>
+                    <div><img src="/img/mileageIcon.png" class="car-specification-icon" th:text="'Average mileage: ' + ${reservation.mileage} + ' l/100km'"></div>
+                    <div><img src="/img/bootIcon.png" class="car-specification-icon" th:text="'Boot Capacity: ' + ${reservation.bootCapacity} + ' l'"></div>
                 </div>
             </div>
             <div class="car-rent">

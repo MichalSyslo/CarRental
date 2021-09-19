@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface IVehicleService {
     Vehicle getVehicleByID(int id);
-    void updateVehicle(Vehicle vehicle);
+    void updateVehicle(Vehicle vehicle, MultipartFile multipartFile);
     List<Vehicle> getAllVehicles();
     List<Vehicle> getAvailableVehicles();
     void removeVehicle(Vehicle vehicle);

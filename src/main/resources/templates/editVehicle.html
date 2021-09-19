@@ -14,7 +14,7 @@
 <div th:replace = "fragments.html :: sidebar"></div>
 
 <div id="content">
-    <form id="edit-vehicle-form" th:method="post">
+    <form id="edit-vehicle-form" enctype="multipart/form-data" th:method="post">
         <p>
             <label>Car name:</label>
             <input type="text" placeholder="Car name" th:field="*{vehicleModel.name}">
@@ -41,6 +41,10 @@
                 <option value="manual">Manual</option>
                 <option value="automatic">Automatic</option>
             </select>
+        </p>
+        <p>
+            <label>Image: </label>
+            <input type="file" name="file">
         </p>
         <input type="submit" value="Edit">
     </form>

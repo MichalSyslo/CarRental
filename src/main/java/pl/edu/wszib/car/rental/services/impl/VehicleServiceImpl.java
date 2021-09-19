@@ -28,7 +28,16 @@ public class VehicleServiceImpl implements IVehicleService {
     }
 
     @Override
-    public void updateVehicle(Vehicle vehicle) {
+    public void updateVehicle(Vehicle vehicle, MultipartFile file) {
+        if(vehicle.getName().equals("") || vehicle.getSeats()==0 || vehicle.getBootCapacity() == 0 || vehicle.getMileage()==0){
+            this.sessionObject.setInfo("Please, provide all necessary information");
+            return;
+        }
+        try {
+            vehicle.setImage(Base64.getEncoder().encodeToString(file.getBytes()));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         this.vehicleDAO.updateVehicle(vehicle);
     }
 
@@ -44,13 +53,13 @@ public class VehicleServiceImpl implements IVehicleService {
     }
 
     @Override
-    public boolean addVehicle(Vehicle vehicle, MultipartFile multipartFile) {
+    public boolean addVehicle(Vehicle vehicle, MultipartFile file) {
         if(vehicle.getName().equals("") || vehicle.getSeats()==0 || vehicle.getBootCapacity() == 0 || vehicle.getMileage()==0){
             this.sessionObject.setInfo("Please, provide all necessary information");
             return false;
         }
         try {
-            vehicle.setImage(Base64.getEncoder().encodeToString(multipartFile.getBytes()));
+            vehicle.setImage(Base64.getEncoder().encodeToString(file.getBytes()));
         } catch (Exception e) {
             e.printStackTrace();
         }

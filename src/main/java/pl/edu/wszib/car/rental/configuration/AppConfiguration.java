@@ -10,7 +10,6 @@ import org.springframework.context.annotation.Configuration;
 @ComponentScan("pl.edu.wszib.car.rental")
 public class AppConfiguration {
 
-
     @Bean
     public SessionFactory sessionFactory(){
         return new org.hibernate.cfg.Configuration().configure().buildSessionFactory();

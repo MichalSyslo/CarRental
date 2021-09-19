@@ -28,6 +28,9 @@ public class FullReservationInfoModel {
     @Column(name="vehicle_name")
     private String vehicleName;
     private int seats;
+    @Lob
+    @Column(columnDefinition = "MEDIUMBLOB")
+    private String image;
 
     public FullReservationInfoModel() {
     }
@@ -126,5 +129,13 @@ public class FullReservationInfoModel {
 
     public void setSeats(int seats) {
         this.seats = seats;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }
