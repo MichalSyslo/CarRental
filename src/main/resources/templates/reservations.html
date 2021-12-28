@@ -22,7 +22,7 @@
     <a th:if="${info}" th:text="${info}" id="cancellationErrorInfo"></a>
     <th:block th:each="reservation : ${reservationsInfo}">
         <div class="car-box">
-            <img th:src="${'data:image/png;base64,' + vehicle.image}" class="car-picture">
+            <img th:src="${'data:image/png;base64,' + reservation.image}" class="car-picture">
             <div class="car-details">
                 <p class="car-name" th:text="${reservation.vehicleName}"></p>
                 <div class="car-specification">
